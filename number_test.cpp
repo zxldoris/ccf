@@ -2,31 +2,28 @@
 int main()
 {
 	int cnt=0, k=0,i,j,n;
-	int a[1000] = {0}, b[1000][2] = {0};
+	int a[1000] = {0}, b[1000][2] = {0},c[1000] = {0};
 	
 	scanf("%d",&n);
 	for(i=0;i<n;i++)
 		scanf("%d",&a[i]);
-		
-		
 	for(i=0;i<n;i++)
+		c[i] = a[i];
+		
+	for(i=0;i<n;i++)	
 	{
-		cnt = 0;
-		for(j=0;j<n;j++)
+		if(c[i] == -1) continue;
+		for(j=i;j<n;j++)
 		{
-			if(a[i] == a[j] && a[i] != -1)
+			if(a[i] == a[j]&& c[j]>=0)
 			{
-				printf("a[%d]%d==a[%d]%d   ",i,a[i],j,a[j]);
 				cnt++;
-				a[j] = -1;
+				c[j] = -1;
 			}
 		}
-	
-		b[k][0] = a[i];
-		b[k][1] = cnt;
-		k++;
-	//	printf("k=%d,cnt=%d\n",k,cnt); 
+		
+		printf("cnt:%d\n",cnt);
+		cnt = 0;	
 	}
-	
 }
 
