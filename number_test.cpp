@@ -9,20 +9,23 @@ int main()
 		scanf("%d",&a[i]);
 		
 		
-	for(i=0;i<n && a[i]>0;i++)
+	for(i=0;i<n;i++)
 	{
-		for(j=i;j<n;j=j+cnt)
+		cnt = 0;
+		for(j=0;j<n;j++)
 		{
-			if(a[i] == a[j])
+			if(a[i] == a[j] && a[i] != -1)
 			{
+				printf("a[%d]%d==a[%d]%d   ",i,a[i],j,a[j]);
 				cnt++;
 				a[j] = -1;
 			}
 		}
+	
 		b[k][0] = a[i];
 		b[k][1] = cnt;
 		k++;
-		printf("k=%d,cnt=%d\n",k,cnt); 
+	//	printf("k=%d,cnt=%d\n",k,cnt); 
 	}
 	
 }
